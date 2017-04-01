@@ -3,16 +3,35 @@
 	<title>Register Form</title>
 </head>
 <body>
-	<form action="/controllers/register.php">
-		<input type="text" name="username" value="username">
-		<input type="text" name="email" value="email">
-		<input type="text" name="college">
-		<input type="password" name="password">
-		<input type="password" name="repassword">
-		<select>
-			<option>Male</option>
-			<option>Female</option>
+	<form action="../controllers/register.php" method="post">
+		Username:
+		<input type="text" name="username">
+		<br>Email:
+		<input type="text" name="email">
+		<br>
+		College:
+		<select name="college">
+			<option value="IIT Bombay">IIT Bombay</option>
+			<option value="IIT Delhi">IIT Delhi</option>
+			<option value="IIT Kanpur">IIT Kanpur</option>
+			<option value="IIT Roorkee">IIT Roorkee</option>
+			<option value="IIT Madras">IIT Madras</option>
+			<option value="IIT Kharagpur">IIT Kharagpur</option>
+			<option value="IIT Guwahati">IIT Guwahati</option>
+			<option value="IIT Jaipur">IIT Jaipur</option>
+			<option value="IIT Mandi">IIT Mandi</option>
 		</select>
+		<br>
+		Password:
+		<input type="password" name="password">
+		<br>
+		Re-type Passowrd:
+		<input type="password" name="repassword">
+		<br>
+		Gender:
+		<input type="radio" name="gender" value="M">M
+		<input type="radio" name="gender" value="F">F
+		<br>
 		<button type="submit" name="submit">Register</button>
 	</form>
 </body>
