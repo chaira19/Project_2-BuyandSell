@@ -63,6 +63,11 @@
 			render("../views/portfolio.php");
 			
 		}
+
+		else
+		{
+			echo "Passwords do not match";
+		}
 		
 	}
 ?>

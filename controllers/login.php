@@ -39,32 +39,31 @@
             $user = $_POST["username"];
             $userp = $_POST["password"];
 
-            $check = "SELECT id FROM users WHERE username = '". $user."'";
+            $row = "SELECT * FROM users WHERE username = '". $user."'";
 
-            $checkp = "SELECT password FROM users WHERE username = '". $user."'";
-            $resultp = $conn->query($checkp);
-
-            echo $resultp;
-          
             // query database for user
-            $result = $conn->query($check);
-           
-                // to update the table only if there is a new entry
+            $result = $conn->query($row);
+
+
+            
             if (!$result) {
                 die($conn->error);
             }
+
+            
             
             //echo "num_rows = ".$result->num_rows."\n";
             if ($result->num_rows > 0) {
 
                 // if we found user, check password
                 
-                
+                $userdata = $result->fetch_assoc();
 
-                if ($resultp === $userp)
+
+                if ($userdata["password"] == $userp)
                 {
                     echo "You are logged in";
-                    $_SESSION["id"] = $check;
+                    $_SESSION["id"] = $userdata["id"];
                 }
                 else{
                     echo "Wrong Password";
