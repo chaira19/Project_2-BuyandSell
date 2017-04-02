@@ -15,6 +15,7 @@
 			$password = "IlovemyindiA19!"; //mysql password
 
 			// Create database
+			// Database Should be created before connection
 			$sql = "CREATE DATABASE buyandsell";
 		
 			// Create connection
