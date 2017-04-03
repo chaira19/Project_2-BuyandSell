@@ -56,6 +56,15 @@
 				// WHERE NOT EXISTS ( SELECT college FROM ".strtolower($_POST["city"]). " WHERE college = "."'".$collegename."') LIMIT 1					}
 				if ($conn->query($sql) === TRUE) {
 					echo "New record created successfully \n";
+
+					echo "You are logged in";
+
+                    session_start();
+
+                    $_SESSION["id"] = $userdata["id"];
+                    $_SESSION["college"] = $userdata["college"];
+                    $_SESSION["username"] = $userdata["username"];
+
 				} else {
 				    echo "Error: " . $sql . "<br>" . $conn->error;
 				}

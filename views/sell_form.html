@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sell an Item</title>
+</head>
+<body>
+	<form action="../controllers/sell.php" method="post">
+
+		Category:
+
+		<select name="category">
+			<option>Books</option>
+			<option>Clothing</option>
+			<option>Electronics</option>
+			<option>Furniture</option>
+			<option>Sports</option>
+			<option>Vehicle</option>
+			<option>Others</option>
+
+		</select>
+		<br>
+		<input type="text" name="item-title" value="item-title">
+		<br>
+		<input type="text" name="item-description" value="item-description">
+		<br>
+		<input type="text" name="contact" value="contact">
+		<br>
+
+		<input type="radio" name="donate" value="Donate">I want to Donate
+		<input type="radio" name="sell" value="Sell">I want to sell
+		<br>
+
+		<input type="text" name="price" value="Your Price">
+		<br>
+
+		<input type="file" name="pic" accept="image/*" value="Upload">
+		<br>
+
+		<button type="submit" name="submit" value="submit">Submit</button>
+	</form>
+</body>
+</html>

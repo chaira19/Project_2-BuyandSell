@@ -63,7 +63,12 @@
                 if ($userdata["password"] == $userp)
                 {
                     echo "You are logged in";
+
+                    session_start();
+
                     $_SESSION["id"] = $userdata["id"];
+                    $_SESSION["college"] = $userdata["college"];
+                    $_SESSION["username"] = $userdata["username"];
                 }
                 else{
                     echo "Wrong Password";
