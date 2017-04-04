@@ -43,9 +43,10 @@
 				//echo "Error creating table: " . $conn->error;
 			}
 
-		$sql = "INSERT IGNORE INTO store (id, image, title, description, price, college, category, dns,  putdate, username, contact) VALUES (NULL, '".addslashes($_POST["pic"])."', '".addslashes($_POST["title"])."'".", "."'".addslashes($_POST["description"])."', '".addslashes($_POST["price"])."'".", '".$_SESSION["college"]."', "."'". $_POST["category"]."', '" .addslashes($_POST["dns"]). "', '".$_POST["putdate"]."', '" . $_SESSION["username"]."', '" . $_POST["contact"]."')";
+		$date = date('Y-m-d H:i:s');
 
-		
+		$sql = "INSERT IGNORE INTO store (id, image, title, description, price, college, category, dns,  putdate, username, contact) VALUES (NULL, '".addslashes($_POST["pic"])."', '".addslashes($_POST["title"])."'".", "."'".addslashes($_POST["description"])."', '".addslashes($_POST["price"])."'".", '".$_SESSION["college"]."', "."'". $_POST["category"]."', '" .addslashes($_POST["dns"]). "', '".$date."', '" . $_SESSION["username"]."', '" . $_POST["contact"]."')";
+
 								//}
 		if ($conn->query($sql) === TRUE) 
 		{
