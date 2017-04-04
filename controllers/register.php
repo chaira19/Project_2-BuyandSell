@@ -8,6 +8,15 @@
 	else if ($_SERVER["REQUEST_METHOD"] == "POST")
 	{
 
+		if(empty($_POST["password"]))
+		{
+			echo "You must provide password";
+		}
+
+		else
+
+		{
+
 		if ($_POST["password"] == $_POST["repassword"]) {
 			
 			$servername = "localhost";
@@ -63,9 +72,8 @@
 
                     $_SESSION["loggedin"] = true;
 
-                    $_SESSION["id"] = $userdata["id"];
-                    $_SESSION["college"] = $userdata["college"];
-                    $_SESSION["username"] = $userdata["username"];
+                    $_SESSION["college"] = $_POST["college"];
+                    $_SESSION["username"] = $_POST["username"];
 
                     require "../views/portfolio.php";
 
@@ -81,6 +89,7 @@
 		{
 			echo "Passwords do not match";
 		}
+	}
 		
 	}
 ?>

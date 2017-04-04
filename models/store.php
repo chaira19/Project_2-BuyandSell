@@ -77,7 +77,7 @@
 				<td><?php echo $row["id"] ?></td>
 				<td><?php echo $row["title"] ?></td>
 				<td><?php echo $row["description"] ?></td>
-				<td><?php echo $row["image"] ?></td>
+				<td><?php //echo '<img src="data:image/jpeg;base64,'.base64_encode($result['image']).'"'/> ?></td>
 				<td><?php echo $row["price"] ?></td>
 				<td><?php echo $row["college"] ?></td>
 				<td><?php echo $row["category"] ?></td>

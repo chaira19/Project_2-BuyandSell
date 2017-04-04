@@ -19,6 +19,8 @@
 				die("Connection failed: " . $conn->connect_error);
 		} 
 		//echo "Connected successfully";
+		
+		session_start();
 
 		// sql to create table by the name of the city
 		$sql = "CREATE TABLE store(
@@ -43,10 +45,13 @@
 
 		$sql = "INSERT IGNORE INTO store (id, image, title, description, price, college, category, dns,  putdate, username, contact) VALUES (NULL, '".addslashes($_POST["pic"])."', '".addslashes($_POST["title"])."'".", "."'".addslashes($_POST["description"])."', '".addslashes($_POST["price"])."'".", '".$_SESSION["college"]."', "."'". $_POST["category"]."', '" .addslashes($_POST["dns"]). "', '".$_POST["putdate"]."', '" . $_SESSION["username"]."', '" . $_POST["contact"]."')";
 
-		echo "it comes till here";
+		
 								//}
-		if ($conn->query($sql) === TRUE) {
+		if ($conn->query($sql) === TRUE) 
+		{
 					echo "New record created successfully \n";
+					require "../models/store.php";
+
 				} else {
 				    echo "Error: " . $sql . "<br>" . $conn->error;
 				}
