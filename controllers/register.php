@@ -2,7 +2,7 @@
 	
 	if ($_SERVER["REQUEST_METHOD"] == "GET")
 	{
-		render("/views/register_form.php");
+		render("../views/register_form.php");
 	}
 
 	else if ($_SERVER["REQUEST_METHOD"] == "POST")

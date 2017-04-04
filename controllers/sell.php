@@ -7,6 +7,10 @@
 
 	else if ($_SERVER["REQUEST_METHOD"] == "POST")
 	{
+
+		$target_dir = "../uploads/";
+		$target_file = $target_dir . basename($_FILES["pic"]["name"]);
+
 		$servername = "localhost";
 		$username = "root"; //mysql username
 		$password = "IlovemyindiA19!"; //mysql password
@@ -43,9 +47,14 @@
 				//echo "Error creating table: " . $conn->error;
 			}
 
+		$image = file_get_contents($_FILES["pic"]);
+		//echo $image;
+		//echo $_FILES;
+		//print_r($_FILES["pic"]);
+		
 		$date = date('Y-m-d H:i:s');
 
-		$sql = "INSERT IGNORE INTO store (id, image, title, description, price, college, category, dns,  putdate, username, contact) VALUES (NULL, '".addslashes($_POST["pic"])."', '".addslashes($_POST["title"])."'".", "."'".addslashes($_POST["description"])."', '".addslashes($_POST["price"])."'".", '".$_SESSION["college"]."', "."'". $_POST["category"]."', '" .addslashes($_POST["dns"]). "', '".$date."', '" . $_SESSION["username"]."', '" . $_POST["contact"]."')";
+		$sql = "INSERT IGNORE INTO store (id, image, title, description, price, college, category, dns,  putdate, username, contact) VALUES (NULL, '".addslashes($image)."', '".addslashes($_POST["title"])."'".", "."'".addslashes($_POST["description"])."', '".addslashes($_POST["price"])."'".", '".$_SESSION["college"]."', "."'". $_POST["category"]."', '" .addslashes($_POST["dns"]). "', '".$date."', '" . $_SESSION["username"]."', '" . $_POST["contact"]."')";
 
 								//}
 		if ($conn->query($sql) === TRUE) 

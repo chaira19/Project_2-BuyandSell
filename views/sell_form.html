@@ -4,7 +4,7 @@
 	<title>Sell an Item</title>
 </head>
 <body>
-	<form action="../controllers/sell.php" method="post">
+	<form action="../controllers/sell.php" enctype="multipart/form-data" method="post">
 
 		Category:
 		<select name="category">
@@ -31,7 +31,7 @@
 		<input type="text" name="price" value="Your Price">
 		<br>
 
-		<input type="file" name="pic" accept="image/*" value="Upload">
+		<input type="file" name="pic" id="fileToUpload" accept="image/*" value="Upload">
 		<br>
 
 		<button type="submit" name="submit" value="submit">Submit</button>
