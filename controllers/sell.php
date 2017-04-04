@@ -2,7 +2,7 @@
 	
 	if ($_SERVER["REQUEST_METHOD"] == "GET")
 	{
-		render("../views/sell_form.php");
+		render("../views/sell_form.html");
 	}
 
 	else if ($_SERVER["REQUEST_METHOD"] == "POST")
@@ -24,9 +24,12 @@
 		$sql = "CREATE TABLE store(
 		id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
 		image LONGBLOB,
+		title VARCHAR(100),
+		description VARCHAR(500),
 		price VARCHAR(500),
 		college VARCHAR(500),
 		category VARCHAR(500),
+		dns VARCHAR(100),
 		putdate VARCHAR(30),
 		username VARCHAR(100),
 		contact VARCHAR(100)
@@ -35,11 +38,13 @@
 		if ($conn->query($sql) === TRUE) {
 				echo "store table created successfully";
 			} else {
-				echo "Error creating table: " . $conn->error;
+				//echo "Error creating table: " . $conn->error;
 			}
 
-		$sql = "INSERT IGNORE INTO store (id, image, price, college, category, putdate, username, contact) VALUES (NULL, "."'".addslashes($_POST["pic"])."'".", "."'".addslashes($_POST["price"])."'".", '".$_SESSION["college"]."', "."'". $_POST["category"]."', '" . $_POST["putdate"]."', '" . $_SESSION["username"]."', '" . $_POST["contact"]."')";
-				// WHERE NOT EXISTS ( SELECT college FROM ".strtolower($_POST["city"]). " WHERE college = "."'".$collegename."') LIMIT 1					}
+		$sql = "INSERT IGNORE INTO store (id, image, title, description, price, college, category, dns,  putdate, username, contact) VALUES (NULL, '".addslashes($_POST["pic"])."', '".addslashes($_POST["title"])."'".", "."'".addslashes($_POST["description"])."', '".addslashes($_POST["price"])."'".", '".$_SESSION["college"]."', "."'". $_POST["category"]."', '" .addslashes($_POST["dns"]). "', '".$_POST["putdate"]."', '" . $_SESSION["username"]."', '" . $_POST["contact"]."')";
+
+		echo "it comes till here";
+								//}
 		if ($conn->query($sql) === TRUE) {
 					echo "New record created successfully \n";
 				} else {

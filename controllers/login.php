@@ -66,6 +66,8 @@
 
                     session_start();
 
+                    $_SESSION["loggedin"] = true;
+
                     $_SESSION["id"] = $userdata["id"];
                     $_SESSION["college"] = $userdata["college"];
                     $_SESSION["username"] = $userdata["username"];
