@@ -1,5 +1,5 @@
 # Project_2
-Backend of a simple buy and sell application build from scratch in php.
+Backend of a simple buy and sell application built from scratch in php using mvc model.
 
 ## Usage
 Install *AMP, clone in var/www/html/, ready @localhost
