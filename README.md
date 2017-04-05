@@ -1,4 +1,4 @@
-# Project_2
+# Project_2-BuyandSell
 Backend of a simple buy and sell application built from scratch in php using mvc model.
 
 ## Usage
